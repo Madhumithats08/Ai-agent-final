@@ -16,13 +16,14 @@ const normalizeTechName = (tech: string) => {
 const checkIconExists = async (url: string) => {
   try {
     const response = await fetch(url, { method: "HEAD" });
-    return response.ok; // Returns true if the icon exists
+    return response.ok;
   } catch {
     return false;
   }
 };
 
-export const getTechLogos = async (techArray: string[]) => {
+/* 🔧 MINIMAL FIX IS HERE */
+export const getTechLogos = async (techArray: string[] = []) => {
   const logoURLs = techArray.map((tech) => {
     const normalized = normalizeTechName(tech);
     return {
