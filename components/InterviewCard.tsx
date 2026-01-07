@@ -6,10 +6,11 @@ import { Button } from "./ui/button";
 import Image from "next/image";
 import { getRandomInterviewCover } from "@/lib/utils";
 import DisplayTechicons from "./DisplayTechicons";
+import { id } from "zod/v4/locales";
 //import DisplayTechIcons from "./DisplayTechicons";
 
 const InterviewCard = ({
-  interviewId,
+  id,
   userId,
   role,
   type,
@@ -30,9 +31,7 @@ const InterviewCard = ({
           </div>
           <Image src={getRandomInterviewCover()} alt="cover image" width={90} height={90} className="rounded-full object-fit size-[90px]"/>
           <h3 className="mt-5 capitalize">
-            {role} Interview
-
-          </h3>
+            {role} Interview</h3>
           <div className="flex flex-row gap-5 mt-3">
             <div className="flex flex-row gap-2">
               <Image src="/calendar.svg" alt="Calendar" width={22} height={22} />
@@ -54,7 +53,7 @@ const InterviewCard = ({
           <DisplayTechicons techStack={techstack} />
 
           <Button className="btn-primary">
-            <Link href={feedback ? `/interview/${interviewId}/feedback` : `/interview/${interviewId}`}>
+            <Link href={feedback ? `/interview/${id}/feedback` : `/interview/${id}`}>
               {feedback?'Check Feedback':'View Interview'}
             </Link>
 
